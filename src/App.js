@@ -1,25 +1,49 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+
+// styled와 keyframes를 불러옵니다!
+import styled, {keyframes} from "styled-components";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Box></Box>
     </div>
   );
 }
+
+const boxAnimation = keyframes`
+  0% {
+    border-radius: 0px;
+  }
+
+  30% {
+    top : 300px;
+  }
+
+  50% {
+    border-radius: 50px;
+    top : 700px;
+  }
+
+  100% {
+    border-radius: 0px;
+    top : 20px;
+  }
+`;
+
+// 박스를 먼저 하나 만들어줍니다
+const Box = styled.div`
+  width: 100px;
+  height: 100px;
+  background: green;
+  border-radius: 0px;
+  /* 원으로 만들기 */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  animation: ${boxAnimation} 2s 1s infinite linear alternate;
+`;
+
 
 export default App;
